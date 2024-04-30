@@ -5,13 +5,14 @@
     android:background="@color/color_121212"
     android:layout_height="match_parent">
 
+
+
     <!-- Fragment Container -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation" >
-
 
     </FrameLayout>
 
