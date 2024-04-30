@@ -1,5 +1,6 @@
 package com.example.saho_main
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,9 @@ class HomeScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_screen)
+
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -40,6 +44,8 @@ class HomeScreenActivity : AppCompatActivity() {
         // Show the default fragment on startup
         replaceFragment(HomeFragment())
     }
+
+
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -31,14 +32,11 @@ class LoginActivity : AppCompatActivity() {
         editTextUsername = findViewById(R.id.editTextUsername)
         editTextPassword = findViewById(R.id.editTextPassword)
         buttonLogin = findViewById(R.id.buttonLogin)
-        signup = findViewById(R.id.txtsignup)
+//        signup = findViewById(R.id.txtsignuptv)
 
         buttonLogin.setOnClickListener {
             val username = editTextUsername.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
-            signup.setOnClickListener {
-                startActivity(Intent(this, SignUpActivity::class.java))
-            }
 
             if (isValidCredentials(username, password)) {
                 startActivity(Intent(this, HomeScreenActivity::class.java))
@@ -58,6 +56,10 @@ class LoginActivity : AppCompatActivity() {
 
         return (username == storedUsername && password == storedPassword) ||
                 (username == validUsername && password == validPassword)
+    }
+
+    fun MovetoRegister(view: View) {
+        startActivity(Intent(this, SignUpActivity::class.java))
     }
 
 }
