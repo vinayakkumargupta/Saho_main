@@ -53,8 +53,9 @@ dependencies {
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
     implementation libs.lottie
-    implementation libs.material.v140
     implementation libs.androidx.room.runtime
+    implementation libs.material.v150
+
 
     // Room Kotlin extensions
     implementation libs.androidx.room.ktx.v240

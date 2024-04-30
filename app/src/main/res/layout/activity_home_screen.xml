@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/color_121212"
     android:layout_height="match_parent">
 
     <!-- Fragment Container -->
@@ -9,14 +10,50 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation" />
+        android:layout_above="@id/bottom_navigation" >
+
+
+    </FrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/fabSos"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="66dp"
+        android:contentDescription="SOS Button"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:clickable="true"
+        app:lottie_rawRes="@raw/ic_sos_btn" />
+
+    <!-- TextView for SOS -->
+    <TextView
+        android:id="@+id/textSos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/fabSos"
+        android:layout_alignTop="@id/fabSos"
+        android:layout_alignEnd="@+id/fabSos"
+        android:layout_alignBottom="@+id/fabSos"
+        android:gravity="center"
+        android:text="SOS"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
 
     <!-- Bottom NavigationView -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/color_121212"
+        style="@style/BottomNavigationStyle1"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/bottom_navigation_menu" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 </RelativeLayout>
