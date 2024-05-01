@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
             fullNametv.text = username
             val initial = username?.take(1)
             nameTv.text = initial
-            cardView1.setOnClickListener {
+            cardView2.setOnClickListener {
                 val intent = Intent(requireContext(), SosActivity::class.java)
                 startActivity(intent)
             }

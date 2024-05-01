@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/design"
+    android:background="@drawable/theck"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.SignUpActivity">
@@ -31,13 +31,13 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Welcome"
-                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-
-
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -46,12 +46,12 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:visibility="gone"
             android:src="@drawable/saho" />
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:background="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp">
 
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
-                android:textColor="@color/white"
+                android:textColor="@color/color_121212"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +86,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@color/black"
             app:passwordToggleEnabled="true">
 
             <EditText
@@ -94,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColor="@color/white"
+                android:textColor="@color/color_121212"
                 android:hint="Password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -106,14 +105,13 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="32dp"
-            android:backgroundTint="#00FFFFFF"
+            android:backgroundTint="@color/color_121212"
             android:fontFamily="sans-serif"
             android:onClick="Register"
             android:padding="15dp"
             android:text="Register"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            app:backgroundTint="#00FDFAFA" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/txtsignup"
@@ -126,7 +124,7 @@
             android:onClick="moveToLogin"
             android:text="Already Have An Account ?"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/color_121212"
             android:textSize="15sp"
 
             android:textStyle="bold" />

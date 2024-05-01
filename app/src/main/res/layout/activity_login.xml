@@ -5,22 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/design"
+    android:background="@drawable/theck"
     tools:context=".Login.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="35dp">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/saho" />
+        android:orientation="vertical">
 
 
 
@@ -28,8 +20,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign in to Continue"
-            android:textColor="@color/white"
+            android:textColor="@color/color_mate"
             android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="200dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"
             android:id="@+id/t1v"
 
 
@@ -37,8 +33,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_height="wrap_content">
 
 
 
@@ -47,9 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColor="@color/white"
-                android:background="@color/black"
-                android:hint="Email"
+                android:textColor="@color/color_121212"
+                android:hint="Username"
 
                 />
 
@@ -65,12 +59,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:textColor="@color/white"
-                    android:background="@color/black"
+                    android:textColor="@color/color_121212"
                     android:hint="Password"
                     android:inputType="textPassword"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -82,9 +76,9 @@
                 android:onClick="Login"
                 android:padding="15dp"
                 android:text="Login"
+                android:backgroundTint="@color/color_121212"
                 android:textColor="@color/white"
-                android:textSize="20dp"
-                app:backgroundTint="#00F8F5F5" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/txtsignuptv"
@@ -101,7 +95,7 @@
                 android:clickable="true"
                 android:text="New User? Sign Up"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/color_121212"
                 android:textSize="20sp" />
 
 
@@ -116,11 +110,6 @@
             android:textAlignment="center"
             />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="227dp"
-            android:src="@drawable/bg" />
 
 
     </LinearLayout>

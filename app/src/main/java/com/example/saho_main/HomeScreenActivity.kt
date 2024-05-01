@@ -56,13 +56,10 @@ class HomeScreenActivity : AppCompatActivity() {
         fabSos.setOnClickListener {
             if (!locationFetchInProgress) {
                 locationFetchInProgress = true
-                if (checkLocationPermission()) {
-                    checkLocationSettingsAndFetchLocation()
-                } else {
-                    requestLocationPermission()
-                }
+                checkLocationPermissionAndFetchLocation()
             }
         }
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -85,6 +82,14 @@ class HomeScreenActivity : AppCompatActivity() {
 
         // Show the default fragment on startup
         replaceFragment(HomeFragment())
+    }
+
+    private fun checkLocationPermissionAndFetchLocation() {
+        if (checkLocationPermission()) {
+            checkLocationSettingsAndFetchLocation()
+        } else {
+            requestLocationPermission()
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -124,26 +129,8 @@ class HomeScreenActivity : AppCompatActivity() {
     }
 
     private fun fetchCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // Permissions are not granted, request them
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                LOCATION_PERMISSION_REQUEST_CODE
-            )
-        } else {
-            // Permissions are granted, proceed to fetch location
-            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location ->
                 location?.let {
                     val latitude = location.latitude
                     val longitude = location.longitude
@@ -168,8 +155,9 @@ class HomeScreenActivity : AppCompatActivity() {
                 }
             }.addOnFailureListener { e ->
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }.addOnCompleteListener {
+                locationFetchInProgress = false
             }
-        }
     }
 
     private fun checkLocationPermission(): Boolean {
@@ -179,11 +167,10 @@ class HomeScreenActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     private fun requestLocationPermission() {
         ActivityCompat.requestPermissions(
             this,
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
             LOCATION_PERMISSION_REQUEST_CODE
         )
     }
@@ -206,7 +193,7 @@ class HomeScreenActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CHECK_SETTINGS) {
-            if (resultCode == Activity.RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 // User has enabled location services. Fetch the location.
                 fetchCurrentLocation()
             } else {
