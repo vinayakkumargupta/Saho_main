@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.saho_main.R
+import com.example.saho_main.Emergency.EmergencyActivity
+import com.example.saho_main.NearBy.MainActivity
+import com.example.saho_main.Quickshare.QuickshareActivity
 import com.example.saho_main.Sos.SosActivity
-import com.example.saho_main.databinding.ActivityHomeScreenBinding
 import com.example.saho_main.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -39,6 +40,18 @@ class HomeFragment : Fragment() {
             nameTv.text = initial
             cardView2.setOnClickListener {
                 val intent = Intent(requireContext(), SosActivity::class.java)
+                startActivity(intent)
+            }
+            cardView3.setOnClickListener {
+                val intent = Intent(requireContext(), MainActivity::class.java)
+                startActivity(intent)
+            }
+            cardView4.setOnClickListener {
+                val intent = Intent(requireContext(), QuickshareActivity::class.java)
+                startActivity(intent)
+            }
+            cardView5.setOnClickListener {
+                val intent = Intent(requireContext(), EmergencyActivity::class.java)
                 startActivity(intent)
             }
 

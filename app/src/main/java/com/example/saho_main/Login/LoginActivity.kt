@@ -38,14 +38,18 @@ class LoginActivity : AppCompatActivity() {
             val username = editTextUsername.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
 
-            if (isValidCredentials(username, password)) {
-                startActivity(Intent(this, HomeScreenActivity::class.java))
-                finish()
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                if (isValidCredentials(username, password)) {
+                    startActivity(Intent(this, HomeScreenActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                }
             } else {
-
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
             }
         }
+
 
     }
 
